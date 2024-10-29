@@ -1,0 +1,13 @@
+server:
+  port: 8899
+
+date: yyyy-MM-dd
+time: HH:mm:ss
+datetime: yyyy-MM-dd HH:mm:ss
+timezone: GMT+8
+
+
+spring:
+  jackson:
+    time-zone: ${timezone}
+    date-format: ${datetime}
