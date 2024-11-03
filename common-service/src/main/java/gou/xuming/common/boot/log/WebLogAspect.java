@@ -110,7 +110,7 @@ public class WebLogAspect {
                 argList.add(map);
             }
         }
-        if (argList.size() == 0) {
+        if (argList.isEmpty()) {
             return null;
         } else if (argList.size() == 1) {
             return argList.get(0);

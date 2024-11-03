@@ -1,9 +1,8 @@
 package gou.xuming.common.api.util;
 
-import gou.xuming.common.api.pool.DateTimePool;
+import gou.xuming.common.api.singleton.DateTimeSingleton;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * @Author: xuming
@@ -14,16 +13,8 @@ import java.time.format.DateTimeFormatter;
 public class DateTimeUtil {
 
 
-    public static DateTimeFormatter getDateTimeFormatter() {
-        return DateTimeFormatter.ofPattern(DateTimePool.DATE_TIME);
-    }
-
-    public static DateTimeFormatter getDateTimeFormatter(String pattern) {
-        return DateTimeFormatter.ofPattern(pattern);
-    }
-
     public static String getNow() {
-        return LocalDateTime.now().format(getDateTimeFormatter());
+        return LocalDateTime.now().format(DateTimeSingleton.getDateTimeFormatter());
     }
 
 

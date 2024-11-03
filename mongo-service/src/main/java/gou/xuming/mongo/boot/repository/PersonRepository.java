@@ -1,7 +1,6 @@
 package gou.xuming.mongo.boot.repository;
 
 import gou.xuming.entity.mongo.cat.Person;
-import gou.xuming.entity.mongo.cat.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -10,6 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @Version: 1.0
  * @Description: TODO
  **/
-public interface PersonRepository extends MongoRepository<Person,String> {
+public interface PersonRepository extends MongoRepository<Person, String> {
 
 }
