@@ -1,9 +1,6 @@
 package gou.xuming.mongo.boot.common.pool;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,15 +13,4 @@ import org.springframework.stereotype.Component;
 @Data
 public class YamlPool {
 
-    @Value("${date}")
-    public String date;
-
-    @Value("${time}")
-    public String time;
-
-    @Value("${datetime}")
-    public String dateTime;
-
-    @Value("${timezone}")
-    public String timeZone;
 }

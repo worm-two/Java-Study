@@ -30,8 +30,8 @@ import java.util.Map;
  * @Version: 1.0
  * @Description: 统一日志处理切面
  **/
-@Aspect
-@Component
+// @Aspect
+// @Component
 @Slf4j
 @Order(1)
 public class WebLogAspect {

@@ -41,14 +41,6 @@ public class Result<T> {
         this.data = data;
     }
 
-    private void setTotal(long total) {
-        this.total = total;
-    }
-
-    private void setOther(Object other) {
-        this.other = other;
-    }
-
     private Result() {
     }
 

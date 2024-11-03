@@ -1,4 +1,4 @@
-package gou.xuming.common.boot.config;
+package gou.xuming.common.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;

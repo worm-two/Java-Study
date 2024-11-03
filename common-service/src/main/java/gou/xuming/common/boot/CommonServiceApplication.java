@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @Author: xuming
- * @Date: 2024:10:26 16:46
+ * @Date: 2024:11:03 12:08
  * @Version: 1.0
- * @Description: 公共服务启动类
+ * @Description: TODO
  **/
 @SpringBootApplication
 public class CommonServiceApplication {

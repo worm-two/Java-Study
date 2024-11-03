@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * @Version: 1.0
  * @Description: TODO
  **/
-@Document("persons")
+@Document("person")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -41,5 +41,5 @@ public class Person implements Serializable {
     /**
      * 创建一个5秒之后文档自动删除的索引
      */
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 }

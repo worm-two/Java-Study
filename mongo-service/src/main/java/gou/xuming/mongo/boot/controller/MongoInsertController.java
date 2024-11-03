@@ -1,14 +1,13 @@
 package gou.xuming.mongo.boot.controller;
 
+import gou.xuming.common.api.result.Result;
 import gou.xuming.entity.mongo.cat.Person;
-import gou.xuming.entity.mongo.cat.Role;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @Author: xuming
@@ -17,26 +16,27 @@ import java.time.LocalDateTime;
  * @Description: TODO
  **/
 @RestController
-@RequestMapping("mongo/")
+@RequestMapping("java/study/mongo/person")
 public class MongoInsertController {
 
     @Resource
     private MongoTemplate mongoTemplate;
 
     @Resource
-    private MongoRepository<Role,String> mongoRepository;
+    private MongoRepository<Person, String> personMongoRepository;
 
 
-    @RequestMapping("/insert")
-    public void insert() {
-
-        Person person =new Person();
-        person.setUserName("张三");
-        person.setPassWord("123456");
-        person.setCreateTime(LocalDateTime.now());
-
+    @PostMapping("/insert")
+    public Result insert(@RequestBody Person person) {
         mongoTemplate.insert(person);
+        return Result.success();
 
+    }
+
+    @GetMapping("/query")
+    public Result<List<Person>> query() {
+        List<Person> all = personMongoRepository.findAll();
+        return Result.success(all);
     }
 
     @RequestMapping("/one")

@@ -1,17 +1,12 @@
 server:
   port: 7447
 
-date: yyyy-MM-dd
-time: HH:mm:ss
-datetime: yyyy-MM-dd HH:mm:ss
-timezone: GMT+8
-
 spring:
   application:
     name: mongo-service
   jackson:
-    time-zone: ${timezone}
-    date-format: ${datetime}
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
   data:
     mongodb:
       host: 192.168.2.82

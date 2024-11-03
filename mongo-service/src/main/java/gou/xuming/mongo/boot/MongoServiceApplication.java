@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * @Description: Mongo 学习 启动类
  **/
 @SpringBootApplication
-@EnableMongoRepositories(basePackages ="gou.xuming.mongo.boot.repository")
 public class MongoServiceApplication {
 
     public static void main(String[] args) {
