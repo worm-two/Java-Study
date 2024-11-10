@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -46,7 +47,7 @@ public class SwordController {
     @RequestMapping("/one")
     public Result insertOne() {
 
-        Sword sword = Sword.builder().name("佛剑分说").age(40).sex("男").address("大雪原").build();
+        Sword sword = Sword.builder().name("佛剑分说").age(40).sex("男").address("大雪原").createTime(LocalDateTime.now()).build();
 
         swordRepository.insert(sword);
 

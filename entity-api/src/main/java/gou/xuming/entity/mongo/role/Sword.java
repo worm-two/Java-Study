@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @Author: xuming
@@ -34,4 +35,6 @@ public class Sword implements Serializable {
     private String sex;
 
     private String address;
+
+    private LocalDateTime createTime = LocalDateTime.now();
 }

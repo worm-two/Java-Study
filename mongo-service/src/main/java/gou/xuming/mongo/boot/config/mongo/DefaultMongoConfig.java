@@ -22,8 +22,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * @Version: 1.0
  * @Description: TODO
  **/
-@EnableMongoRepositories(basePackages = {"gou.xuming.mongo.boot.dao.repository.study"}
-        , mongoTemplateRef = DefaultMongoConfig.MONGO_TEMPLATE)
+@EnableMongoRepositories(basePackages = {"gou.xuming.mongo.boot.dao.repository.study"})
 @Configuration
 public class DefaultMongoConfig extends AbstractMongoConfig {
 
