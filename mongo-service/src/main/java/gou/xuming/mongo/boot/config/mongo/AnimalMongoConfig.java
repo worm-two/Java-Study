@@ -1,7 +1,7 @@
 package gou.xuming.mongo.boot.config.mongo;
 
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -40,15 +40,20 @@ public class AnimalMongoConfig extends AbstractMongoConfig {
 
     @Bean(MONGO_DATABASE_FACTORY)
     @Override
-    public MongoDatabaseFactory mongoDatabaseFactory(@Qualifier(MONGO_PROPERTIES) MongoProperties mongoProperties) {
-        return new SimpleMongoClientDatabaseFactory(mongoProperties().getUri());
+    public MongoDatabaseFactory mongoDatabaseFactory() {
+        String url = mongoProperties().getUri() != null ? mongoProperties().getUri() : getUri(mongoProperties());
+        if (StrUtil.isBlank(url)) {
+            throw new IllegalArgumentException("No MongoDB connection string found in 'spring.data.mongodb.study.uri'");
+        }
+        return new SimpleMongoClientDatabaseFactory(url);
     }
 
     @Bean(MONGO_TEMPLATE)
     @Override
-    public MongoTemplate mongoTemplate(@Qualifier(MONGO_DATABASE_FACTORY) MongoDatabaseFactory factory) {
+    public MongoTemplate mongoTemplate() {
 
-        MongoTemplate mongoTemplate = new MongoTemplate(factory);
+        MongoDatabaseFactory mongoDatabaseFactory = mongoDatabaseFactory();
+        MongoTemplate mongoTemplate = new MongoTemplate(mongoDatabaseFactory);
 
         // 去除_class
         MappingMongoConverter mongoTemplateConverter = (MappingMongoConverter) mongoTemplate.getConverter();

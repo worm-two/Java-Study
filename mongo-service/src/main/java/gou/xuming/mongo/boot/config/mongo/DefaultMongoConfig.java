@@ -1,10 +1,12 @@
 package gou.xuming.mongo.boot.config.mongo;
 
 
+import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -22,23 +24,31 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 @Configuration
 public class DefaultMongoConfig extends AbstractMongoConfig {
 
+    @Primary
     @Bean
     @ConfigurationProperties(prefix = "spring.data.mongodb.study")
     public MongoProperties mongoProperties() {
         return new MongoProperties();
     }
 
+    @Primary
     @Bean
     @Override
-    public MongoDatabaseFactory mongoDatabaseFactory(MongoProperties mongoProperties) {
+    public MongoDatabaseFactory mongoDatabaseFactory() {
+        String url = mongoProperties().getUri() != null ? mongoProperties().getUri() : getUri(mongoProperties());
+        if (StrUtil.isBlank(url)) {
+            throw new IllegalArgumentException("No MongoDB connection string found in 'spring.data.mongodb.study.uri'");
+        }
         return new SimpleMongoClientDatabaseFactory(mongoProperties().getUri());
     }
 
+    @Primary
     @Bean
     @Override
-    public MongoTemplate mongoTemplate(MongoDatabaseFactory factory) {
+    public MongoTemplate mongoTemplate() {
 
-        MongoTemplate mongoTemplate = new MongoTemplate(factory);
+        MongoDatabaseFactory mongoDatabaseFactory = mongoDatabaseFactory();
+        MongoTemplate mongoTemplate = new MongoTemplate(mongoDatabaseFactory);
 
         // 去除_class
         MappingMongoConverter mongoTemplateConverter = (MappingMongoConverter) mongoTemplate.getConverter();
