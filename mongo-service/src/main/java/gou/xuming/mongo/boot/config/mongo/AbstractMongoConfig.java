@@ -12,14 +12,14 @@ import org.springframework.data.mongodb.core.MongoTemplate;
  **/
 public abstract class AbstractMongoConfig {
 
-    private final MongoProperties mongoProperties;
+    public static final String MONGO_PROPERTIES = "MongoProperties";
 
-    public AbstractMongoConfig(MongoProperties mongoProperties) {
-        this.mongoProperties = mongoProperties;
-    }
+    public static final String MONGO_TEMPLATE = "MongoTemplate";
 
-    public abstract MongoTemplate mongoTemplate(MongoDatabaseFactory factory);
+    public static final String MONGO_DATABASE_FACTORY = "mongoDatabaseFactory";
 
     public abstract MongoDatabaseFactory mongoDatabaseFactory(MongoProperties mongoProperties);
+
+    public abstract MongoTemplate mongoTemplate(MongoDatabaseFactory factory);
 
 }
