@@ -1,6 +1,7 @@
 package gou.xuming.mongo.boot.config.mongo;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,9 +27,9 @@ public class AnimalMongoConfig extends AbstractMongoConfig {
 
     public static final String MONGO_PROPERTIES = ANIMAL + AbstractMongoConfig.MONGO_PROPERTIES;
 
-    public static final String MONGO_TEMPLATE = ANIMAL + AbstractMongoConfig.MONGO_TEMPLATE;
-
     public static final String MONGO_DATABASE_FACTORY = ANIMAL + AbstractMongoConfig.MONGO_DATABASE_FACTORY;
+
+    public static final String MONGO_TEMPLATE = ANIMAL + AbstractMongoConfig.MONGO_TEMPLATE;
 
 
     @Bean(MONGO_PROPERTIES)
@@ -39,13 +40,13 @@ public class AnimalMongoConfig extends AbstractMongoConfig {
 
     @Bean(MONGO_DATABASE_FACTORY)
     @Override
-    public MongoDatabaseFactory mongoDatabaseFactory(MongoProperties mongoProperties) {
+    public MongoDatabaseFactory mongoDatabaseFactory(@Qualifier(MONGO_PROPERTIES) MongoProperties mongoProperties) {
         return new SimpleMongoClientDatabaseFactory(mongoProperties().getUri());
     }
 
     @Bean(MONGO_TEMPLATE)
     @Override
-    public MongoTemplate mongoTemplate(MongoDatabaseFactory factory) {
+    public MongoTemplate mongoTemplate(@Qualifier(MONGO_DATABASE_FACTORY) MongoDatabaseFactory factory) {
 
         MongoTemplate mongoTemplate = new MongoTemplate(factory);
 
