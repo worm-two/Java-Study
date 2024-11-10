@@ -2,6 +2,7 @@ package gou.xuming.mongo.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 /**
  * @Author: xuming
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  * @Description: Mongo 学习 启动类
  **/
+@EnableMongoAuditing
 @SpringBootApplication
 public class MongoServiceApplication {
 

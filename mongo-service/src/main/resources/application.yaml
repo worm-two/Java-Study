@@ -9,12 +9,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   data:
     mongodb:
-      host: 192.168.2.82
-      port: 27017
-      database: mongo_study
-      username: root
-      password: root
-      authentication-database: admin
-      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
-      auto-index-creation: true
-#      uri: mongodb://root:root@192.168.2.82:27017/mongo_study?authSource=admin&authMechanism=SCRAM-SHA-1
+      study:
+        uri: mongodb://root:root@192.168.2.82:27017/mongo_study?authSource=admin
+      animal:
+        uri: mongodb://root:root@192.168.2.120:27017/role?authSource=admin
