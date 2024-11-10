@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * @Author: xuming
@@ -21,6 +22,8 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
  * @Version: 1.0
  * @Description: TODO
  **/
+@EnableMongoRepositories(basePackages = {"gou.xuming.mongo.boot.dao.repository.study"}
+        , mongoTemplateRef = DefaultMongoConfig.MONGO_TEMPLATE)
 @Configuration
 public class DefaultMongoConfig extends AbstractMongoConfig {
 

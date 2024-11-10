@@ -1,6 +1,9 @@
-package gou.xuming.entity.mongo.cat;
+package gou.xuming.entity.mongo.role;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -8,13 +11,16 @@ import java.io.Serializable;
 
 /**
  * @Author: xuming
- * @Date: 2024:10:27 19:25
+ * @Date: 2024:11:10 16:07
  * @Version: 1.0
  * @Description: TODO
  **/
+@Document("sword")
 @Data
-@Document("role")
-public class Role implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Sword implements Serializable {
 
     private static final long serialVersionUID = -3258839839160856613L;
 
@@ -26,4 +32,6 @@ public class Role implements Serializable {
     private Integer age;
 
     private String sex;
+
+    private String address;
 }

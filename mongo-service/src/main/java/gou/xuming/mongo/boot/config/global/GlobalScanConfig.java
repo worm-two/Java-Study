@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * @Version: 1.0
  * @Description: TODO
  **/
-@EnableMongoRepositories(basePackages ="gou.xuming.mongo.boot.repository")
 @ComponentScan(basePackages = "gou.xuming.common.api")
 @Configuration
 public class GlobalScanConfig {

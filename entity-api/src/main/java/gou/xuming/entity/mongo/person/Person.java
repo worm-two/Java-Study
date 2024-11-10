@@ -1,4 +1,4 @@
-package gou.xuming.entity.mongo.cat;
+package gou.xuming.entity.mongo.person;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -11,5 +11,5 @@ spring:
     mongodb:
       study:
         uri: mongodb://root:root@192.168.2.82:27017/mongo_study?authSource=admin
-      animal:
-        uri: mongodb://root:root@192.168.2.120:27017/role?authSource=admin
+      puppet:
+        uri: mongodb://root:root@192.168.2.120:27017/gold?authSource=admin

@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * @Author: xuming
@@ -20,20 +21,22 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
  * @Version: 1.0
  * @Description: TODO
  **/
+@EnableMongoRepositories(basePackages = {"gou.xuming.mongo.boot.dao.repository.puppet"}
+        , mongoTemplateRef = PuppetMongoConfig.MONGO_TEMPLATE)
 @Configuration
-public class AnimalMongoConfig extends AbstractMongoConfig {
+public class PuppetMongoConfig extends AbstractMongoConfig {
 
-    private final static String ANIMAL = "animal";
+    private final static String PUPPET = "puppet";
 
-    public static final String MONGO_PROPERTIES = ANIMAL + AbstractMongoConfig.MONGO_PROPERTIES;
+    public static final String MONGO_PROPERTIES = PUPPET + AbstractMongoConfig.MONGO_PROPERTIES;
 
-    public static final String MONGO_DATABASE_FACTORY = ANIMAL + AbstractMongoConfig.MONGO_DATABASE_FACTORY;
+    public static final String MONGO_DATABASE_FACTORY = PUPPET + AbstractMongoConfig.MONGO_DATABASE_FACTORY;
 
-    public static final String MONGO_TEMPLATE = ANIMAL + AbstractMongoConfig.MONGO_TEMPLATE;
+    public static final String MONGO_TEMPLATE = PUPPET + AbstractMongoConfig.MONGO_TEMPLATE;
 
 
     @Bean(MONGO_PROPERTIES)
-    @ConfigurationProperties(prefix = "spring.data.mongodb.animal")
+    @ConfigurationProperties(prefix = "spring.data.mongodb.puppet")
     public MongoProperties mongoProperties() {
         return new MongoProperties();
     }

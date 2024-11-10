@@ -1,7 +1,8 @@
 package gou.xuming.mongo.boot.controller;
 
 import gou.xuming.common.api.result.Result;
-import gou.xuming.entity.mongo.cat.Person;
+import gou.xuming.entity.mongo.person.Person;
+import gou.xuming.mongo.boot.dao.repository.study.PersonRepository;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +18,13 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("java/study/mongo/person")
-public class MongoInsertController {
+public class PersonController {
 
     @Resource
     private MongoTemplate mongoTemplate;
 
     @Resource
-    private MongoRepository<Person, String> personMongoRepository;
+    private PersonRepository personRepository;
 
 
     @PostMapping("/insert")
@@ -35,16 +36,21 @@ public class MongoInsertController {
 
     @GetMapping("/query")
     public Result<List<Person>> query() {
-        List<Person> all = personMongoRepository.findAll();
+        List<Person> all =  personRepository.findAll();
         return Result.success(all);
     }
 
     @RequestMapping("/one")
-    public void insertOne() {
+    public Result insertOne() {
+
+
+        return Result.success();
     }
 
     @RequestMapping("/many")
-    public void insertMany() {
+    public Result insertMany() {
+
+        return Result.success();
     }
 
 }
