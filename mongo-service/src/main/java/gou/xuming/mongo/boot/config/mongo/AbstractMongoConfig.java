@@ -19,7 +19,7 @@ public abstract class AbstractMongoConfig {
 
     public static final String MONGO_TEMPLATE = "MongoTemplate";
 
-    public static final String MONGO_DATABASE_FACTORY = "mongoDatabaseFactory";
+    public static final String MONGO_DATABASE_FACTORY = "MongoDatabaseFactory";
 
     public abstract MongoDatabaseFactory mongoDatabaseFactory();
 

@@ -15,6 +15,7 @@
         <module>kafka-service</module>
         <module>mongo-service</module>
         <module>springboot-service</module>
+        <module>mybatis-plus-service</module>
     </modules>
 
     <properties>
