@@ -1,0 +1,50 @@
+package gou.xuming.common.api.result;
+
+import lombok.Getter;
+
+/**
+ * @Author: xuming
+ * @Date: 2024:10:26 17:02
+ * @Version: 1.0
+ * @Description: TODO
+ **/
+@Getter
+public enum ResultCode implements StatusCode {
+
+    SUCCESS(200, "操作成功"),
+
+    FAILED(500, "操作失败"),
+
+    ACCEPTED(202, "操作进行中"),
+
+    VALIDATE_FAILED(404, "参数检验失败"),
+
+    UNAUTHORIZED(401, "暂未登录或token已经过期"),
+
+    AUTHORIZATION_HEADER_IS_EMPTY(600, "请求头中的token为空"),
+
+    GET_TOKEN_KEY_ERROR(601, "远程获取TokenKey异常"),
+
+    GEN_PUBLIC_KEY_ERROR(602, "生成公钥异常"),
+
+    JWT_TOKEN_EXPIRE(603, "token校验异常"),
+
+    TOMANY_REQUEST_ERROR(429, "后端服务触发流控"),
+
+    BACKGROUND_DEGRADE_ERROR(604, "后端服务触发降级"),
+
+    BAD_GATEWAY(502, "网关服务异常"),
+
+    FORBIDDEN(403, "没有相关权限");
+
+
+    private final long code;
+
+    private final String message;
+
+    ResultCode(long code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+}

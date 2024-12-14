@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: mybatis-plus-service
+  port: 6769
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+    type-aliases-package: com.example.demo.entity
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: NOT_NULL
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+  mapper-locations: classpath:mapper/*.xml

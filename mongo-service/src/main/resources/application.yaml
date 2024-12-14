@@ -1,0 +1,15 @@
+server:
+  port: 7447
+
+spring:
+  application:
+    name: mongo-service
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  data:
+    mongodb:
+      study:
+        uri: mongodb://root:root@192.168.2.82:27017/mongo_study?authSource=admin
+      puppet:
+        uri: mongodb://root:root@192.168.2.120:27017/gold?authSource=admin
