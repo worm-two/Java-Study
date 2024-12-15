@@ -1,4 +1,4 @@
-package gou.xuming.entity.mongo.role;
+package gou.xuming.entity.mongo.puppet;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -2,7 +2,7 @@ package gou.xuming.mongo.boot.controller;
 
 import gou.xuming.common.api.result.Result;
 import gou.xuming.entity.mongo.person.Person;
-import gou.xuming.entity.mongo.role.Sword;
+import gou.xuming.entity.mongo.puppet.Sword;
 import gou.xuming.mongo.boot.config.mongo.PuppetMongoConfig;
 import gou.xuming.mongo.boot.dao.repository.puppet.SwordRepository;
 import org.springframework.data.mongodb.core.MongoTemplate;

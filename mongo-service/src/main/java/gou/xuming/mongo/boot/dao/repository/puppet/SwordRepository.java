@@ -1,7 +1,7 @@
 package gou.xuming.mongo.boot.dao.repository.puppet;
 
 
-import gou.xuming.entity.mongo.role.Sword;
+import gou.xuming.entity.mongo.puppet.Sword;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
